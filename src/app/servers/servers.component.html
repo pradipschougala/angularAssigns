@@ -1,0 +1,35 @@
+<label >Hi There</label>
+<input type="text" 
+class="form-control"
+[(ngModel)]="serverName">
+
+<p>{{serverName}}</p>
+<button class="btn btn-primary" 
+            [disabled]="!allowNewUser"
+            (click)="onCreateServer()">Add/Sub</button>   
+<br>
+<br>
+            <button class="btn btn-danger" (click) = "onToggleDetails()">Display Details</button>
+            <p *ngIf="showSecret">Secret Password = tuna</p>
+            <div *ngFor = "let logItem of log; let i = index"
+                    [ngStyle] = "{ backgroundColor: i >= 4 ? 'green' : 'transperant'}"
+                    [ngClass] = "{'textWhite':i >= 4}">{{logItem}}</div>
+
+<!-- <p>{{allowNewUser}}</p> -->
+<!-- <p [innerText] = "allowNewUser"></p> -->
+
+<!-- <p>{{serverCreationStatus}}</p> -->
+<!-- <p *ngIf = "serverCreated"> server was created , server name {{ serverName }}</p>
+
+    <input type="text"
+    class="form-control"
+    [(ngModel)] = "username">
+
+    <p>{{username}}</p>
+
+    <button class="btn btn-warning"             
+            [disabled] = "username ===''"
+            (click) = "username = ' ' ">Reset</button> -->
+
+
+            <app-server *ngFor = "let server of servers"></app-server>
